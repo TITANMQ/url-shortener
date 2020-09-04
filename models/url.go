@@ -10,13 +10,13 @@ import (
 //URL holds URL data
 type URL struct {
 	ID       uint   `json:"id" gorm:"column:id;PRIMARY_KEY;AUTO_INCREMENT"`
-	Url      string `json:"url" gorm:"column:url"`
-	ShortUrl string `json:"short_url" gorm:"column:short_url"`
+	URL      string `json:"url" gorm:"column:url"`
+	ShortURL string `json:"short_url" gorm:"column:short_url"`
 }
 
 //CreateURL creates a url entry to the database
 func (url *URL) CreateURL() map[string]interface{} {
-	url.ShortUrl = GenerateShortenedURL()
+	url.ShortURL = GenerateShortenedURL()
 	err := GetDB().Create(&url).Error
 
 	if err != nil {
@@ -25,6 +25,8 @@ func (url *URL) CreateURL() map[string]interface{} {
 	return u.Message(true, "URL created successfully")
 }
 
+//ShortenedURLLength length of the shortend URL
+var ShortenedURLLength = 6
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
 //GenerateShortenedURL generates a shortened url

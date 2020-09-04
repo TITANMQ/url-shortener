@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"url_shortener/models"
 	"net/http"
 	u "url_shortener/utils"
@@ -24,6 +23,9 @@ var RedirectShortURL = func(w http.ResponseWriter, r *http.Request) {
 		u.Respond(w, u.Message(false, "Invalid URL"))
 		return
 	}
-	fmt.Println(redirectURL.Url)
-	http.Redirect(w, r, redirectURL.Url, http.StatusPermanentRedirect)
+
+	//For testing purposes
+	// fmt.Println(redirectURL.URL) 
+	
+	http.Redirect(w, r, redirectURL.URL,  http.StatusPermanentRedirect)
 }
