@@ -4,7 +4,7 @@ url-shortener is a little go application I made which shortens URLs.
 
 ## Prerequisites
 - Go lang installed to run the application 
-- Code editor is prefered
+- Code editor is preferred
 - An API client to send API requests (I use Postman)
 
 ## Installation
@@ -26,7 +26,7 @@ Run the application in a console:
 go run ./main.go
 ```
 Once the application has started on your chosen port, use a API client to send a request to the running application.
-The request will be for creating a shortend URL.
+The request will be for creating a shortened URL.
 
 Request URL should be a POST request to the following endpoint:
 ```
@@ -39,7 +39,7 @@ You should add the following body in JSON format:
 }
 ```
 
-If successful then you should recieve a similar JSON response:
+If successful then you should receive a similar JSON response:
 ```json
 {
     "data": {
