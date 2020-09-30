@@ -44,6 +44,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", homeHandler).Methods("GET")
 	r.HandleFunc("/{shortenedURL}", controllers.RedirectShortURL).Methods("GET")
+	r.HandleFunc("/{shortenedURL}/stats", controllers.URLStatsHandler).Methods("GET")
 	r.HandleFunc("/api/v1/url", controllers.CreateURLHandler).Methods("POST")
 	fmt.Printf("Server started on port %s\n", port)
 	http.ListenAndServe(":"+port, r)
